@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './login.less'
 import { View, Form, Button, Input } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { AtForm, AtInput, AtButton } from 'taro-ui'
 import { useDispatch } from "react-redux"
 import { SET_USERNAME } from '../../redux/constant'
 

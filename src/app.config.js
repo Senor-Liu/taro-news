@@ -4,16 +4,25 @@ export default defineAppConfig({
     'pages/index/index',
     'pages/mine/mine'
   ],
+  // 分包配置
+  "subpackages": [
+    {
+      "root": "detailModule",
+      "pages": [
+        "pages/detail"
+      ]
+    }
+  ],
   // 导航栏配置
   tabBar: {
     list: [{
-      // 'iconPath': 'resource/latest.png',
-      // 'selectedIconPath': 'resource/lastest_on.png',
+      'iconPath': 'static/page.png',
+      'selectedIconPath': 'static/page_on.png',
       pagePath: 'pages/index/index',
       text: '新闻'
     }, {
-      // 'iconPath': 'resource/hotest.png',
-      // 'selectedIconPath': 'resource/hotest_on.png',
+      'iconPath': 'static/mine.png',
+      'selectedIconPath': 'static/mine_on.png',
       pagePath: 'pages/mine/mine',
       text: '我的'
     }],
