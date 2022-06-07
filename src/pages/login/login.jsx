@@ -57,7 +57,7 @@ export default function Login() {
           value={password}
           onInput={handlePswdChange}
         />
-        <Button formType='submit'>登录</Button>
+        <Button type='primary' formType='submit'>登录</Button>
       </Form>
     </View>
   )

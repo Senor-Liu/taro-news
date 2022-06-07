@@ -4,14 +4,14 @@ import Taro from '@tarojs/taro'
 import { AtListItem } from 'taro-ui'
 
 export default function Thread(props) {
-  const { title, source, date, imgsrc } = props
+  const { style, title, source, date, imgsrc, docid } = props
   
   function handleClick() {
-    Taro.navigateTo({ url: '/detailModule/pages/detail' })
+    Taro.navigateTo({ url: `/detailModule/pages/detail?docid=${docid}` })
   }
 
   return (
-    <View>
+    <View style={style}>
       <AtListItem
         title={title}
         note={date + '  ' + source}

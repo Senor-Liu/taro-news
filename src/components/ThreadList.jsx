@@ -6,15 +6,17 @@ import { getNewsList } from '../utils/api'
 import VirtualList from '@tarojs/components/virtual-list'
 import Thread from './Thread'
 
-const Row = React.memo(({ id, index, data }) => {
+const Row = React.memo(({ id, index, style, data }) => {
   return (
     <Thread
       id={id}
       index={index}
+      style={style}
       title={data[index].title}
       source={data[index].source}
       date={data[index].mtime}
       imgsrc={data[index].imgsrc}
+      docid={data[index].postid}
     />
   )
 })
@@ -40,12 +42,13 @@ export default function ThreadList(props) {
   const { windowHeight, statusBarHeight, titleBarHeight } = info
   const listHeight = windowHeight - (statusBarHeight || 0) - (titleBarHeight || 0)
 
-  console.log(listHeight, windowHeight, statusBarHeight, titleBarHeight);
+  // console.log(listHeight, windowHeight, statusBarHeight, titleBarHeight);
 
   return (
     <View>
       <AtMessage />
-      {loading && <AtActivityIndicator size='30' content='加载中' mode='center'></AtActivityIndicator>}
+      {loading &&
+        <AtActivityIndicator size='30' content='加载中' mode='center' />}
       <VirtualList
         height={700} /* 列表的高度 */
         width='100%' /* 列表的宽度 */

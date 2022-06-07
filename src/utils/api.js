@@ -1,11 +1,15 @@
-import Taro from "@tarojs/taro"
+import { request } from "@tarojs/taro"
 
 export const newsType = {
-  featured: 'T1467284926140',
+  headline: 'T1348647909107',
   sports: 'T1348649079062',
-  entertainment: 'T1348648517839'
+  finance: 'T1348648756099'
 }
 
 export function getNewsList(type) {
-  return Taro.request({ url: `http://c.3g.163.com/nc/article/list/${type}/0-20.html` })
+  return request({ url: `https://c.m.163.com/nc/article/list/${type}/0-10.html` })
+}
+
+export function getNewsDetail(docid) {
+  return request({ url: `https://c.m.163.com/nc/article/${docid}/full.html` })
 }
