@@ -7,7 +7,7 @@ export const newsType = {
 }
 
 export function getNewsList(type) {
-  return request({ url: `https://c.m.163.com/nc/article/list/${type}/0-10.html` })
+  return request({ url: `https://c.m.163.com/nc/article/list/${type}/0-20.html` })
 }
 
 export function getNewsDetail(docid) {

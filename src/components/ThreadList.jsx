@@ -38,6 +38,7 @@ export default function ThreadList(props) {
     })
   }, [])
 
+  // 根据屏幕高度计算列表高度
   const info = Taro.getSystemInfoSync()
   const { windowHeight, statusBarHeight, titleBarHeight } = info
   const listHeight = windowHeight - (statusBarHeight || 0) - (titleBarHeight || 0)
@@ -47,10 +48,9 @@ export default function ThreadList(props) {
   return (
     <View>
       <AtMessage />
-      {loading &&
-        <AtActivityIndicator size='30' content='加载中' mode='center' />}
+      {loading && <AtActivityIndicator size='30' content='加载中' mode='center' />}
       <VirtualList
-        height={700} /* 列表的高度 */
+        height={listHeight} /* 列表的高度 */
         width='100%' /* 列表的宽度 */
         itemData={newsList} /* 渲染列的数据 */
         itemCount={newsList && newsList.length} /* 渲染列表的长度 */

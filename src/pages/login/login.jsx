@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './login.less'
-import { View, Form, Button, Input } from '@tarojs/components'
+import { View, Form, Button, Input, Image } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import { useDispatch } from "react-redux"
 import { SET_USERNAME } from '../../redux/constant'
@@ -39,7 +39,9 @@ export default function Login() {
 
   return (
     <View className='login-view'>
-      { }
+      <View className='banner'>
+        <Image className='image' mode='widthFix' src='https://tse1-mm.cn.bing.net/th/id/R-C.d8a1ec1a232c194256723734ed6497f9?rik=Opl3RGMHM%2bSLuQ&riu=http%3a%2f%2fimg95.699pic.com%2fvideo_cover%2f79%2f93%2f60%2fa_C8n5shJahkNh1561799360.JPG!%2fboth%2f317x178&ehk=dj2LLZCVB1odVrZSxHU2Kiyb6uhurGbF8S3FSjIz6ZM%3d&risl=&pid=ImgRaw&r=0' />
+      </View>
       <Form onSubmit={onSubmit} className='login-form'>
         <Input
           name='username'
