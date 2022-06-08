@@ -32,7 +32,7 @@ export default function Detail() {
     if (newsDetail) {
       let newBody = newsDetail.body.replace(
         /<p/g,
-        '<p style="text-indent: 2em;"'
+        '<p style="text-indent: 2em;"' 
       )
       if (newsDetail.img) {
         let index = 0

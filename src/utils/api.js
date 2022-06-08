@@ -6,8 +6,8 @@ export const newsType = {
   finance: 'T1348648756099'
 }
 
-export function getNewsList(type) {
-  return request({ url: `https://c.m.163.com/nc/article/list/${type}/0-20.html` })
+export function getNewsList(type, length) {
+  return request({ url: `https://c.m.163.com/nc/article/list/${type}/0-${length}.html` })
 }
 
 export function getNewsDetail(docid) {
