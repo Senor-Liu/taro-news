@@ -7,7 +7,7 @@ import { newsType } from '../../utils/api'
 
 export default function Index() {
   const [current, setCurrent] = useState(0)
-  const tabList = [{ title: '头条' }, { title: '体育' }, { title: '财经' }]
+  const tabList = [{ title: '娱乐' }, { title: '体育' }, { title: '财经' }]
 
   function handleClick(value) {
     setCurrent(value)
@@ -17,13 +17,13 @@ export default function Index() {
     <View>
       <AtTabs current={current} tabList={tabList} onClick={handleClick.bind(this)}>
         <AtTabsPane current={current} index={0} >
-          <ThreadList newsType={newsType.headline} />
+          <ThreadList newsType={newsType.entertainment} />
         </AtTabsPane>
         <AtTabsPane current={current} index={1}>
-          {current === 1 && <ThreadList newsType={newsType.sports} />}
+          <ThreadList newsType={newsType.sports} />
         </AtTabsPane>
         <AtTabsPane current={current} index={2}>
-          {current === 2 && <ThreadList newsType={newsType.finance} />}
+          <ThreadList newsType={newsType.finance} />
         </AtTabsPane>
       </AtTabs>
     </View>

@@ -1,7 +1,7 @@
 import { request } from "@tarojs/taro"
 
 export const newsType = {
-  headline: 'T1348647909107',
+  entertainment: 'T1348648517839',
   sports: 'T1348649079062',
   finance: 'T1348648756099'
 }

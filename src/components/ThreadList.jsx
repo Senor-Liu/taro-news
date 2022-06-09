@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, ScrollView } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { AtMessage } from 'taro-ui'
+import { AtMessage, AtDivider } from 'taro-ui'
 import { getNewsList } from '../utils/api'
 // import VirtualList from '@tarojs/components/virtual-list'
 import Thread from './Thread'
@@ -36,16 +36,21 @@ export default function ThreadList(props) {
 
   const [newsList, setNewsList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [isFull, setIsFull] = useState(false)
 
   useEffect(() => {
     getData()
   }, [])
 
   function getData() {
+    if (isLoading || isFull) { return } // 节流
+      if (newsList.length >= 60) { // 接口最多返回60条数据
+      setIsFull(true)
+      return
+    }
     Taro.showLoading({
       title: '加载中',
     })
-    if (isLoading) { return } // 节流
     setIsLoading(true)
     getNewsList(newsType, newsList.length + 20).then((res) => {
       setIsLoading(false)
@@ -72,6 +77,7 @@ export default function ThreadList(props) {
         scrollY
         style={{ height: listHeight }}
         onScrollToLower={getData}
+        lowerThreshold={10}
       >
         {newsList.map((newsItem) => {
           return (
@@ -85,6 +91,7 @@ export default function ThreadList(props) {
             />
           )
         })}
+        {isFull && <AtDivider content='没有更多了' fontColor='#56abe4' lineColor='#56abe4' />}
       </ScrollView>
     </View>
   )
